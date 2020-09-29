@@ -69,7 +69,7 @@ function searchButtonEventHandler(event) {
 
 // This function gets weather and forecast from API by city name using the response from APIs
 function getCityWeatherAndForecastByName(name) {
-	var weatherQueryURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + name + "&APPID=" + API_KEY;
+	var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + name + "&APPID=" + API_KEY;
 
 	$.ajax({
 			url: weatherQueryURL,
@@ -77,7 +77,7 @@ function getCityWeatherAndForecastByName(name) {
 		})
 		.then(function (response) {
 			apiData = response
-			let imageUrl = "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
+			let imageUrl = "https://openweathermap.org/img/wn/" + response.weather[0].icon + ".png";
 			document.querySelector('.city')
 				.textContent = apiData.name + "(" + currentDay + ")";
 			document.querySelector(".weather-icon")
@@ -90,7 +90,7 @@ function getCityWeatherAndForecastByName(name) {
 				.textContent = (apiData.main.temp)
 				.toFixed(1);
 
-			var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&APPID=" + API_KEY;
+			var uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&APPID=" + API_KEY;
 			console.log(uvQueryURL);
 			$.ajax({
 					url: uvQueryURL,
@@ -115,7 +115,7 @@ function getCityWeatherAndForecastByName(name) {
 
 				});
 		});
-	var forecastqueryURL = "http://api.openweathermap.org/data/2.5/forecast?units=imperial&q=" + name + "&APPID=" + API_KEY;
+	var forecastqueryURL = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=" + name + "&APPID=" + API_KEY;
 	$.ajax({
 			url: forecastqueryURL,
 			method: "GET"
@@ -125,7 +125,7 @@ function getCityWeatherAndForecastByName(name) {
 			for (var i = 0; i < card.date.length; i++) {
 				let forecastIndex = ((i + 1) * 8) - 4;
 				let forecast = response.list[forecastIndex];
-				let imageUrl = "http://openweathermap.org/img/wn/" + forecast.weather[0].icon + ".png";
+				let imageUrl = "https://openweathermap.org/img/wn/" + forecast.weather[0].icon + ".png";
 				let forecastDate = moment(currentDay, "L")
 					.add((i + 1), 'days')
 					.format('L');
