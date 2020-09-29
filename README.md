@@ -32,7 +32,7 @@ The application uses [OpenWeather API](https://openweathermap.org/api) to retrie
 - When user refreshes the page, they can view the last serached city forecast data on the screen.
 
 
--The following image demonstrates the application functionality:
+- The following image demonstrates the application functionality:
 
 ![weather dashboard](/Assets/snapshots/weatherdashboard.PNG)
 
